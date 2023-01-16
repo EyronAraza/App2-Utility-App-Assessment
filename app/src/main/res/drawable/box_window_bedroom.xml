@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- SHADE EFFECT -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#50404040" />
+            <corners android:radius="20sp" />
+        </shape>
+    </item>
+
+    <!-- SHAPE -->
+    <item android:bottom="5sp" android:right="5sp">
+        <shape android:shape="rectangle">
+            <solid android:color="#707D88"/>
+            <corners android:radius="20sp"/>
+        </shape>
+    </item>
+
+</layer-list>

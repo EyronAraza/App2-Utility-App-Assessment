@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:id="@+id/window_box"
+        android:layout_width="@dimen/_270sdp"
+        android:layout_height="@dimen/_290sdp"
+        android:visibility="visible"
+        app:srcCompat="@drawable/box_window_grey"
+        android:shadowColor="#000000"
+        android:shadowDx="5"
+        android:shadowDy="5"
+        android:shadowRadius="10"
+        android:layout_marginStart="5sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/txt_info_header"
+        android:layout_width="@dimen/_280sdp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/verdana"
+        android:text="- HEADER -"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="@dimen/_25sdp"
+        android:textStyle="bold"
+        android:shadowColor="#000000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="2"
+        app:layout_constraintBottom_toBottomOf="@id/window_box"
+        app:layout_constraintLeft_toLeftOf="@id/window_box"
+        app:layout_constraintRight_toRightOf="@id/window_box"
+        app:layout_constraintTop_toTopOf="@id/window_box"
+        app:layout_constraintVertical_bias="0.1"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/txt_info_paragraph"
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/verdana"
+        android:text="Some text. Some text. Some text. Some text. Some text. Some text. Some text. Some text. Some text. Some text. Some text. "
+        android:textColor="#FFFFFF"
+        android:textSize="@dimen/_13sdp"
+        android:shadowColor="#000000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="2"
+        android:justificationMode="inter_word"
+        app:layout_constraintBottom_toBottomOf="@id/window_box"
+        app:layout_constraintLeft_toLeftOf="@id/window_box"
+        app:layout_constraintRight_toRightOf="@id/window_box"
+        app:layout_constraintTop_toBottomOf="@id/txt_info_header"
+        app:layout_constraintVertical_bias="0.1"
+        tools:ignore="HardcodedText,UnusedAttribute" />
+
+    <TextView
+        android:id="@+id/txt_info_close"
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/verdana"
+        android:text="(Press anywhere to close)"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="@dimen/_13sdp"
+        android:shadowColor="#000000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="2"
+        android:justificationMode="inter_word"
+        app:layout_constraintBottom_toBottomOf="@id/window_box"
+        app:layout_constraintLeft_toLeftOf="@id/window_box"
+        app:layout_constraintRight_toRightOf="@id/window_box"
+        app:layout_constraintTop_toBottomOf="@id/txt_info_header"
+        app:layout_constraintVertical_bias="0.9"
+        tools:ignore="HardcodedText,UnusedAttribute" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

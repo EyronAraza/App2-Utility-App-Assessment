@@ -1,0 +1,731 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_blue_violet"
+    tools:context=".HomePage">
+
+    <TextView
+        android:id="@+id/txt_welcome"
+        android:layout_width="@dimen/_280sdp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/verdana"
+        android:text="Welcome, User!"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_25sdp"
+        android:shadowColor="#000000"
+        android:shadowDx="5"
+        android:shadowDy="5"
+        android:shadowRadius="10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.07"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/txt_header"
+        android:layout_width="@dimen/_280sdp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/verdana"
+        android:text="SONGS BASED ON YOUR MOOD"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_30sdp"
+        android:textStyle="bold"
+        android:shadowColor="#000000"
+        android:shadowDx="5"
+        android:shadowDy="5"
+        android:shadowRadius="10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_welcome"
+        app:layout_constraintVertical_bias="0.02"
+        tools:ignore="HardcodedText" />
+
+    <ImageView
+        android:id="@+id/img_icon"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_gravity="center"
+        android:layout_marginTop="5sp"
+        app:srcCompat="@drawable/icon_info"
+        app:layout_constraintBottom_toTopOf="@id/txt_welcome"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.99"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/img_box_trans"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_80sdp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/box_trans"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_header"
+        app:layout_constraintVertical_bias="0.03"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/img_mood_changer"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_60sdp"
+        android:layout_gravity="center"
+        android:visibility="visible"
+        app:srcCompat="@drawable/img_face_happy"
+        app:layout_constraintBottom_toBottomOf="@id/img_box_trans"
+        app:layout_constraintLeft_toLeftOf="@id/img_box_trans"
+        app:layout_constraintRight_toRightOf="@id/img_box_trans"
+        app:layout_constraintTop_toTopOf="@id/img_box_trans"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/txt_clickToChangeMood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/verdana"
+        android:shadowColor="#000000"
+        android:shadowDx="5"
+        android:shadowDy="5"
+        android:shadowRadius="5"
+        android:visibility="visible"
+        android:text="&lt; Tap to \n   change mood"
+        android:gravity="start"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_13sdp"
+        app:layout_constraintBottom_toBottomOf="@id/img_mood_changer"
+        app:layout_constraintLeft_toRightOf="@id/img_mood_changer"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/img_mood_changer"
+        app:layout_constraintVertical_bias="0.5"
+        tools:ignore="HardcodedText" />
+
+    <!-- SCROLL VIEW FOR SONGS -->
+    <ScrollView
+        android:id="@+id/scrollView_songs"
+        android:layout_width="@dimen/_300sdp"
+        android:layout_height="@dimen/_265sdp"
+        android:scrollbars="none"
+        android:visibility="visible"
+        android:layout_marginTop="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_box_trans"
+        app:layout_constraintVertical_bias="0"
+        tools:layout_editor_absoluteY="98dp">
+
+        <!-- SONGS CONTAINER -->
+        <LinearLayout
+            android:id="@+id/songs_container"
+            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <!-- SONG 1 -->
+            <FrameLayout
+                android:id="@+id/frame_song1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/img_song1"
+                    android:layout_width="@dimen/_300sdp"
+                    android:layout_height="@dimen/_105sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="3sp"
+                    app:srcCompat="@drawable/box_blossom"
+                    tools:ignore="ContentDescription" />
+
+                <ImageView
+                    android:id="@+id/img_artist1"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_80sdp"
+                    android:layout_gravity="start"
+                    android:layout_marginStart="25sp"
+                    android:layout_marginTop="11sp"
+                    app:srcCompat="@drawable/img_artist_tricot"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/txt_songTitle1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="130sp"
+                    android:layout_marginTop="6sp"
+                    android:fontFamily="@font/verdana"
+                    android:shadowColor="#000000"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1"
+                    android:text="Song Title"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_20sdp"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/txt_songDetails1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="130sp"
+                    android:layout_marginTop="39sp"
+                    android:fontFamily="@font/verdana"
+                    android:shadowColor="#000000"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1"
+                    android:text="Artist: Artist Name\nGenre: Genre Type\nLanguage: Lang Here"
+                    android:textColor="#867D80"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_13sdp"
+                    android:lineSpacingExtra="5sp"
+                    tools:ignore="HardcodedText" />
+            </FrameLayout>
+
+            <!-- SONG 2 -->
+            <FrameLayout
+                android:id="@+id/frame_song2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="20sp"
+                android:layout_marginStart="3sp">
+
+                <ImageView
+                    android:id="@+id/img_song2"
+                    android:layout_width="@dimen/_300sdp"
+                    android:layout_height="@dimen/_105sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="3sp"
+                    app:srcCompat="@drawable/box_blossom"
+                    tools:ignore="ContentDescription" />
+
+                <ImageView
+                    android:id="@+id/img_artist2"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_80sdp"
+                    android:layout_gravity="start"
+                    android:layout_marginStart="25sp"
+                    android:layout_marginTop="11sp"
+                    app:srcCompat="@drawable/img_artist_zun"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/txt_songTitle2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="130sp"
+                    android:layout_marginTop="6sp"
+                    android:fontFamily="@font/verdana"
+                    android:shadowColor="#000000"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1"
+                    android:text="Song Title"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_20sdp"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/txt_songDetails2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="130sp"
+                    android:layout_marginTop="39sp"
+                    android:fontFamily="@font/verdana"
+                    android:shadowColor="#000000"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1"
+                    android:text="Artist: Artist Name\nGenre: Genre Type\nLanguage: Lang Here"
+                    android:textColor="#867D80"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_13sdp"
+                    android:lineSpacingExtra="5sp"
+                    tools:ignore="HardcodedText" />
+            </FrameLayout>
+
+            <!-- SONG 3 -->
+            <FrameLayout
+                android:id="@+id/frame_song3"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="20sp"
+                android:layout_marginStart="3sp">
+
+                <ImageView
+                    android:id="@+id/img_song3"
+                    android:layout_width="@dimen/_300sdp"
+                    android:layout_height="@dimen/_105sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="3sp"
+                    app:srcCompat="@drawable/box_blossom"
+                    tools:ignore="ContentDescription" />
+
+                <ImageView
+                    android:id="@+id/img_artist3"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_80sdp"
+                    android:layout_gravity="start"
+                    android:layout_marginStart="25sp"
+                    android:layout_marginTop="11sp"
+                    app:srcCompat="@drawable/img_artist_zun"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/txt_songTitle3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="130sp"
+                    android:layout_marginTop="6sp"
+                    android:fontFamily="@font/verdana"
+                    android:shadowColor="#000000"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1"
+                    android:text="Song Title"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_20sdp"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/txt_songDetails3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="130sp"
+                    android:layout_marginTop="39sp"
+                    android:fontFamily="@font/verdana"
+                    android:shadowColor="#000000"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1"
+                    android:text="Artist: Artist Name\nGenre: Genre Type\nLanguage: Lang Here"
+                    android:textColor="#867D80"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_13sdp"
+                    android:lineSpacingExtra="5sp"
+                    tools:ignore="HardcodedText" />
+            </FrameLayout>
+
+            <!-- SONG 4 -->
+            <FrameLayout
+                android:id="@+id/frame_song4"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="20sp"
+                android:layout_marginStart="3sp">
+
+                <ImageView
+                    android:id="@+id/img_song4"
+                    android:layout_width="@dimen/_300sdp"
+                    android:layout_height="@dimen/_105sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="3sp"
+                    app:srcCompat="@drawable/box_blossom"
+                    tools:ignore="ContentDescription" />
+
+                <ImageView
+                    android:id="@+id/img_artist4"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_80sdp"
+                    android:layout_gravity="start"
+                    android:layout_marginStart="25sp"
+                    android:layout_marginTop="11sp"
+                    app:srcCompat="@drawable/img_artist_zun"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/txt_songTitle4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="130sp"
+                    android:layout_marginTop="6sp"
+                    android:fontFamily="@font/verdana"
+                    android:shadowColor="#000000"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1"
+                    android:text="Song Title"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_20sdp"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/txt_songDetails4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="130sp"
+                    android:layout_marginTop="39sp"
+                    android:fontFamily="@font/verdana"
+                    android:shadowColor="#000000"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1"
+                    android:text="Artist: Artist Name\nGenre: Genre Type\nLanguage: Lang Here"
+                    android:textColor="#867D80"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_13sdp"
+                    android:lineSpacingExtra="5sp"
+                    tools:ignore="HardcodedText" />
+            </FrameLayout>
+
+            <!-- SONG 4 -->
+            <FrameLayout
+                android:id="@+id/frame_song5"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="20sp"
+                android:layout_marginStart="3sp">
+
+                <ImageView
+                    android:id="@+id/img_song5"
+                    android:layout_width="@dimen/_300sdp"
+                    android:layout_height="@dimen/_105sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="3sp"
+                    app:srcCompat="@drawable/box_blossom"
+                    tools:ignore="ContentDescription" />
+
+                <ImageView
+                    android:id="@+id/img_artist5"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_80sdp"
+                    android:layout_gravity="start"
+                    android:layout_marginStart="25sp"
+                    android:layout_marginTop="11sp"
+                    app:srcCompat="@drawable/img_artist_zun"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/txt_songTitle5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="130sp"
+                    android:layout_marginTop="6sp"
+                    android:fontFamily="@font/verdana"
+                    android:shadowColor="#000000"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1"
+                    android:text="Song Title"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_20sdp"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/txt_songDetails5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="130sp"
+                    android:layout_marginTop="39sp"
+                    android:fontFamily="@font/verdana"
+                    android:shadowColor="#000000"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1"
+                    android:text="Artist: Artist Name\nGenre: Genre Type\nLanguage: Lang Here"
+                    android:textColor="#867D80"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_13sdp"
+                    android:lineSpacingExtra="5sp"
+                    tools:ignore="HardcodedText" />
+            </FrameLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- SCROLL VIEW FOR THEMES-->
+    <ScrollView
+        android:id="@+id/scrollView_themes"
+        android:layout_width="@dimen/_300sdp"
+        android:layout_height="@dimen/_420sdp"
+        android:scrollbars="none"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_header"
+        app:layout_constraintVertical_bias="0.2"
+        tools:layout_editor_absoluteY="98dp">
+
+        <!-- THEMES CONTAINER -->
+        <LinearLayout
+            android:id="@+id/theme_container"
+            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <!-- THEME: CHERRY BLOSSOMS -->
+            <FrameLayout
+                android:id="@+id/frame_blossom"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/img_blossom"
+                    android:layout_width="@dimen/_300sdp"
+                    android:layout_height="@dimen/_105sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="3sp"
+                    app:srcCompat="@drawable/mask_blossom"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/txt_blossom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/verdana"
+                    android:text="CHERRY BLOSSOMS"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_25sdp"
+                    android:shadowColor="#000000"
+                    android:shadowDx="5"
+                    android:shadowDy="5"
+                    android:shadowRadius="10"
+                    tools:ignore="HardcodedText" />
+            </FrameLayout>
+
+            <!-- THEME: BEDROOM -->
+            <FrameLayout
+                android:id="@+id/frame_bedroom"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="20sp"
+                android:layout_marginStart="3sp">
+
+                <ImageView
+                    android:id="@+id/img_bedroom"
+                    android:layout_width="@dimen/_300sdp"
+                    android:layout_height="@dimen/_105sdp"
+                    app:srcCompat="@drawable/mask_bedroom"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/txt_bedroom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/verdana"
+                    android:text="BEDROOM"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_25sdp"
+                    android:shadowColor="#000000"
+                    android:shadowDx="5"
+                    android:shadowDy="5"
+                    android:shadowRadius="10"
+                    tools:ignore="HardcodedText" />
+            </FrameLayout>
+
+            <!-- THEME: LOVE -->
+            <FrameLayout
+                android:id="@+id/frame_love"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="20sp"
+                android:layout_marginStart="3sp">
+
+                <ImageView
+                    android:id="@+id/img_love"
+                    android:layout_width="@dimen/_300sdp"
+                    android:layout_height="@dimen/_105sdp"
+                    app:srcCompat="@drawable/mask_love"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/txt_love"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/verdana"
+                    android:text="LOVE"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_25sdp"
+                    android:shadowColor="#000000"
+                    android:shadowDx="5"
+                    android:shadowDy="5"
+                    android:shadowRadius="10"
+                    tools:ignore="HardcodedText" />
+            </FrameLayout>
+
+            <!-- THEME: STUDYING -->
+            <FrameLayout
+                android:id="@+id/frame_study"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="20sp"
+                android:layout_marginStart="3sp">
+
+                <ImageView
+                    android:id="@+id/img_study"
+                    android:layout_width="@dimen/_300sdp"
+                    android:layout_height="@dimen/_105sdp"
+                    app:srcCompat="@drawable/mask_study"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/txt_study"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/verdana"
+                    android:text="STUDYING"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_25sdp"
+                    android:shadowColor="#000000"
+                    android:shadowDx="5"
+                    android:shadowDy="5"
+                    android:shadowRadius="10"
+                    tools:ignore="HardcodedText" />
+            </FrameLayout>
+
+            <!-- THEME: DANCE -->
+            <FrameLayout
+                android:id="@+id/frame_dance"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="20sp"
+                android:layout_marginStart="3sp">
+
+                <ImageView
+                    android:id="@+id/img_dance"
+                    android:layout_width="@dimen/_300sdp"
+                    android:layout_height="@dimen/_105sdp"
+                    app:srcCompat="@drawable/mask_dance"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/txt_dance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/verdana"
+                    android:text="DANCE"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_25sdp"
+                    android:shadowColor="#000000"
+                    android:shadowDx="5"
+                    android:shadowDy="5"
+                    android:shadowRadius="10"
+                    tools:ignore="HardcodedText" />
+            </FrameLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Tab -->
+    <View
+        android:id="@+id/tabBar"
+        android:layout_width="@dimen/_300sdp"
+        android:layout_height="@dimen/_55sdp"
+        android:background="@drawable/box"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.98"
+        />
+
+    <ImageView
+        android:id="@+id/img_icon_home"
+        android:layout_width="@dimen/_35sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/icon_home"
+        app:layout_constraintBottom_toBottomOf="@id/tabBar"
+        app:layout_constraintLeft_toLeftOf="@id/tabBar"
+        app:layout_constraintRight_toRightOf="@id/tabBar"
+        app:layout_constraintTop_toTopOf="@id/tabBar"
+        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintVertical_bias="0.3"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/img_icon_theme"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/icon_theme2"
+        app:layout_constraintBottom_toBottomOf="@id/tabBar"
+        app:layout_constraintLeft_toLeftOf="@id/tabBar"
+        app:layout_constraintRight_toRightOf="@id/tabBar"
+        app:layout_constraintTop_toTopOf="@id/tabBar"
+        app:layout_constraintHorizontal_bias="0.36"
+        app:layout_constraintVertical_bias="0.36"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/img_icon_ambience"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/icon_theme"
+        app:layout_constraintBottom_toBottomOf="@id/tabBar"
+        app:layout_constraintLeft_toLeftOf="@id/tabBar"
+        app:layout_constraintRight_toRightOf="@id/tabBar"
+        app:layout_constraintTop_toTopOf="@id/tabBar"
+        app:layout_constraintHorizontal_bias="0.64"
+        app:layout_constraintVertical_bias="0.36"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/img_icon_settings"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/icon_gears"
+        app:layout_constraintBottom_toBottomOf="@id/tabBar"
+        app:layout_constraintLeft_toLeftOf="@id/tabBar"
+        app:layout_constraintRight_toRightOf="@id/tabBar"
+        app:layout_constraintTop_toTopOf="@id/tabBar"
+        app:layout_constraintHorizontal_bias="0.91"
+        app:layout_constraintVertical_bias="0.4"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/img_icon_pointer"
+        android:layout_width="@dimen/_7sdp"
+        android:layout_height="@dimen/_7sdp"
+        app:srcCompat="@drawable/icon_pointer"
+        app:layout_constraintBottom_toBottomOf="@id/tabBar"
+        app:layout_constraintStart_toStartOf="@id/img_icon_home"
+        app:layout_constraintEnd_toEndOf="@id/img_icon_home"
+        app:layout_constraintTop_toBottomOf="@id/img_icon_theme"
+        app:layout_constraintVertical_bias="-1"
+        tools:ignore="ContentDescription" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
